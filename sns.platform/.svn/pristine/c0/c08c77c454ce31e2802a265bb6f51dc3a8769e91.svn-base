@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	<!-- sql문을 저장하는 Mapper -->
+	<mapper namespace="MemberMapper">
+	
+
+ 	<insert id="insertMember" parameterType="hashMap">
+		INSERT INTO USER (
+			   USER_ID,
+			   USER_PASSWORD,
+			   USER_NICKNAME,
+		   	   USER_TYPE,
+		   	   PNS_TOKEN
+			   <if test="userFile != null">
+		   	   ,USER_IMAGEPATH
+		   	   </if>
+		) VALUES (
+			   #{userId},
+			   #{userPass},
+			   #{userNick},
+			   #{userType},
+			   #{pnsToken}
+			   <if test="userFile != null">
+		   	   ,#{userFile}
+		   	   </if>		      
+		)  	
+	<selectKey keyProperty="userNum" resultType="int">
+ 		SELECT LAST_INSERT_ID();
+    </selectKey>   	
+	</insert>
+	
+	<select id="loginMember" resultType="hashMap">
+		SELECT USER_ID userId,
+			   USER_PASSWORD userPass,
+			   USER_NUMBER userNum,
+			   USER_IMAGEPATH userFile,
+			   USER_NICKNAME userNick,
+			   USER_TYPE userType,
+			   PNS_TOKEN pnsToken
+		  FROM USER
+		 WHERE USER_ID = #{userId}
+		   AND USER_PASSWORD = #{userPass}
+		   AND USER_TYPE = #{userType}    
+	</select>
+	
+	<delete id="deleteMember" parameterType="hashMap">
+		DELETE
+		  FROM USER
+		 WHERE USER_ID = #{userId}	
+	</delete>
+	
+	
+	<select id = "searchMember" resultType="hashMap">
+		SELECT USER_ID userId,
+			   USER_NICKNAME userNick,
+			   USER_NUMBER userNum,
+			   USER_IMAGEPATH userFile
+		  FROM USER
+		 WHERE USER_NUMBER = #{userNum}
+	</select>
+	
+	<update id = "updateMember" parameterType="hashMap" >
+		UPDATE USER 
+		   <set> 
+		       <if test="userPass != null">
+		   	   USER_PASSWORD = #{userPass},
+		       </if>
+		       <if test="userNick != null">
+		   	   USER_NICKNAME = #{userNick},
+		   	   </if>
+		   	   <if test="userFile != null">
+		   	   USER_IMAGEPATH = #{userFile}
+		   	   </if>
+		   	   
+		   </set>	   
+		 WHERE USER_NUMBER = #{userNum}	
+	</update>
+	
+	<update id= "pnsTokenUpdate" parameterType="hashMap">
+		UPDATE USER
+		   SET PNS_TOKEN = #{pnsToken}
+	  	 WHERE USER_ID = #{userId}
+	  	   AND USER_PASSWORD = #{userPass}	   
+	</update>
+	
+	<select id ="nickNameOverLap" resultType="string">
+		SELECT USER_NICKNAME userNick
+		  FROM USER
+		 WHERE USER_NICKNAME = #{userNick} 
+	</select>
+	
+	<select id ="idOverLap" resultType="string">
+		SELECT USER_ID userId
+		  FROM USER
+		 WHERE USER_ID = #{userId}
+	</select>
+	
+	<select id="passwordCheck" resultType="string">
+		SELECT USER_PASSWORD userPass
+		  FROM USER
+		 WHERE USER_ID = #{userId} AND USER_PASSWORD = #{userPass}
+	</select>
+
+	<select id="selectImgPath" resultType="string">
+		SELECT USER_IMAGEPATH userPath
+		  FROM USER
+		 WHERE USER_NUMBER = #{userNum} 
+	</select>
+	
+	<select id="selectOldImgPath" resultType="hashMap">
+		SELECT USER_FILE userFile
+		  FROM USER
+		 WHERE USER_NUMBER = #{userNum} 
+	</select>
+	
+</mapper>
+<!--  DATE_FORMAT(USER_REQDATE, '%Y%m%d%H%i%s') userReqdate,
+			   DATE_FORMAT(USER_UDTDATE, '%Y%m%d%H%i%s') userUdtdate -->

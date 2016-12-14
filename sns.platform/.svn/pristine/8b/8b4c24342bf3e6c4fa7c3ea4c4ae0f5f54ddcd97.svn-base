@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="../resources/css/commonheader.css" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="../resources/js/commonheader.js"></script>
+<script src="../resources/js/bootstrap.min.js" type="text/javascript" /></script>
+<title>Insert title here</title>
+<script>var userNum = ${member.userNum}</script>
+</head>
+<body>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        <h4 class="modal-title" id="myModalLabel">경    고</h4>
+	      </div>
+	      <div class="my-modal-body">
+	         	아이디와 패스워드를 확인하세요.
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default center-block" data-dismiss="modal">확  인</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        <h4 class="modal-title" id="myModalLabel">경    고</h4>
+	      </div>
+	      <div class="modal-body">
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">확인</button>
+	        <button type="button" class="btn btn-default pull-right" data-dismiss="modal">취소</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="container">
+		<div class="header-container">
+			<table class="header-table">
+			<tr>
+				<td class="main-logo">
+					<img src="../resources/openit.png" />
+					<p>OpenIt Sns Platform</p>
+				</td>
+		        <td class="user-profile">
+		        	<img src= ""  class="userprofileimage"/>
+		        </td>
+		        <td id="name-limit">
+		        	<p id="welcome-nick"> ${member.userNick}님 환영합니다.</p>
+		       	</td>
+		       	<td>
+		       		<button type="button" id="user-modify" class="header-btn"> 내정보수정 </button>
+		       		<button type="button" id="user-logout" class="header-btn"> 로그아웃 </button>
+		       	</td>
+		     </tr>
+	        </table>
+	        <hr /> 
+         </div>
+	</div>
+</body>
+</html>

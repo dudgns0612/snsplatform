@@ -1,0 +1,81 @@
+var boardList = $('.center-form');
+var currentUrl = $(location).attr('href');
+var boardFile = '';
+
+$(document).ready(function(){
+	var href = currentUrl.split('/board',1)//현재 사용중인 서버주소 잘라서가져옴
+	$.ajax({
+		url : '/boards',
+		type : 'get',
+		dataType : 'json',
+		success : function(data){
+			var len = data.data.length; /*불러온 게시글의 갯수*/
+			for(var i=0; i < len ; i++){
+				var board = data.data[i];
+				var boardDate = board.boardRegDate.substring(0,8);
+				var boardDateFormat = boardDate.substring(0,4)+"/"+boardDate.substring(4,6)+"/"+boardDate.substring(6,8);
+				var fileCnt = board.boardImgCnt + board.boardAudCnt+ board.boardVidCnt;
+				var el = '';
+				
+				el += '<div class = \'boardlist\'  >';
+				el += '<div> <img class= \'userimage\'  src=\' '+href+'/user/'+board.userNum+'/image  \' /> </div>';
+				
+				el += '<div class=\'boardmaker\'>';
+				el += '작성자<br/>';
+				el += ''+board.userNick+' <br/>';
+				el += '댓글 : '+board.boardReplyCnt+' </div>';
+				
+				el += '<div> <img class=\'boardimage\' src=\' '+board.firstImageUrl+' \' />  </div>   ';
+				el += '<div class=\' boardcontent \'>  '+board.boardContent+'    </div>';
+				el += '<div class=\'filedateform\'> <div class=\'boardfile\'>  ▼ 첨부파일  </div> ';
+				el += '<div class=\'filelistvalue\'> 파일 갯수 : '+fileCnt+' <br/>';
+				/*각 게시물의 파일 제목을 가져옴*/
+				$.ajax({
+					url : '/board/'+board.boardNum+'/files',
+					type : 'get',
+					dataType : 'json',
+					async: false,  //동기식으로 전환
+					success : function(data) {
+						boardFile = data.data;
+						var fileLen = boardFile.length;
+						for(var i = 0; i < fileLen ; i++ ){
+							el += ''+ boardFile[i].fileName   +' <br/>';
+						}
+					}
+				});
+				el += '</div>';
+				el += '<div class=\'dateboard\'>';
+				el += '등록일자 </div>';
+				el += '<div class=\'dateboardvalue\'>';
+				el += ' '+boardDateFormat+' ';
+				el += ' </div>  </div>  ';
+				
+	
+				$('.center-form').append(el);
+			}
+		}
+	});
+});
+
+/*파일첨부 리스트*/
+$(document).on('click', '.boardfile', function(){
+    
+	$('.filedateform .filelistvalue:visible').slideUp();
+	
+    var $next = $(this).next(); // 현재위치에서 첫번째
+    var $parent = $(this).parent();
+    if ($next.is(':hidden')){
+    	
+    	$next.slideDown();
+    	$(this).html("▲첨부파일");
+    } else {
+    	$(this).html("▼첨부파일");
+        $next.slideUp();
+    }
+});
+
+$(document).on('click','.board-create-btn', function() {
+	window.location.href='/board/create';
+})
+
+

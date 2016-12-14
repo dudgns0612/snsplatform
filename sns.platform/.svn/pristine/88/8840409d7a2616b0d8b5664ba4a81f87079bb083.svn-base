@@ -1,0 +1,39 @@
+/**
+ * (주) 오픈잇 | http://www.openit.co.kr
+ * Copyright (c)2016-2016,  openit Inc.
+ * All right reserved.
+ */
+package com.sns.common.constant;
+/**
+ * url을 통하여 게시판 작업을 관리하는 컨트롤러
+ * @author 사업본부 사원 김영훈
+ * @version 0.1
+ * @created 2016. 11. 15
+ */
+public class NetworkConstants {
+	
+	public static final String TYPE_MULTIPART = "multipart/form-data";
+	public static final String TPYE_FORM_URLENCODED = "application/x-www-form-urlencoded";
+	public static final String TPYE_JSON = "applicaton/json";
+	public static final String MEMBER = "member";
+	public static final int OK_CODE = 1;
+	public static final int NO_CODE = 0;
+	//파일경로
+	
+	
+	public static final String USER_FILEPATH = "C:/snsplatform/user/";
+	public static final String BOARD_FILEPATH = "C:/snsplatform/board/";
+	public static final String LOCALPATH = "C:/snsplatform";
+	public static final String LOCALHOST = "http://localhost";  // 회사192.168.6.122 // localhost
+	public static final String PORT = "8080";
+	public static final String SEPARATOR = "/";
+	
+ 
+	/*public final static String PORT = "9102";
+	public final static String LOCALHOST = "http://192.168.6.18";
+	public final static String LOCALPATH ="/svc/openit_beginner/sns";
+	public final static String USER_FILEPATH =  "/svc/openit_beginner/sns/user/";
+	public final static String BOARD_FILEPATH = "/svc/openit_beginner/sns/board/";
+	public static final String SEPARATOR = "/";*/
+	
+}

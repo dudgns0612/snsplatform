@@ -1,0 +1,18 @@
+ #mainCarousel > .carousel-inner > .item > img {
+	max-width : 1200px;
+	max-height: 400px;
+	width : 1135px;
+	height : 400px;
+	min-height : 400px;
+	border-radius: 10px;
+} 
+
+
+ #mainCarousel{
+ 	width: 1135px;		
+}
+
+
+ .slideimage-container{
+ 	margin-top: 150px;	
+}

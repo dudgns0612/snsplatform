@@ -1,0 +1,12 @@
+package com.sns.common.constant;
+
+import org.aspectj.lang.JoinPoint;
+
+public class ControllerAfterAspect {
+	public void afterAspect(JoinPoint joinPoint)throws Throwable{
+		String location = joinPoint.getSignature().toShortString();	
+		System.out.println(">>>>>>>>>>>>>>>>after controller");
+		System.out.println(">>>>>>>>>>>>>>>>location :"+location + "END");
+		
+	}
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!--트랜잭션설정  -->	
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+    <mvc:annotation-driven/>
+    
+    <!-- 리졸버 / 뷰 등록 -->
+	<!-- InternalResourseView의 경로 설정 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!-- multipart 리졸버설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf"/> <!-- default 인코딩 방법 설정 -->
+	</bean>
+	
+	<!-- jsonView 설정 -->
+	<bean name="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+	<bean id="jsonMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+	
+	<!-- FileDownloadView 설정 -->
+	<bean id ="fileDownloadView" class="com.sns.common.view.FileDownloadView" />
+	
+	<!-- RequestMappingResolver 설정 -->
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class = "com.sns.common.resolver.RequestMappingResolver"></bean>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+		
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+	
+	<context:component-scan base-package="com.sns">	</context:component-scan>
+	
+	<!-- 로그인 리졸버 설정 세션처리-->
+	<bean id ="loginInterceptor" class="com.sns.common.interceptor.LoginInterceptor"/>
+	<mvc:interceptors>	
+		<mvc:interceptor>
+			<mvc:mapping path="/login"/>
+				<ref bean = "loginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+  	<bean id = "authInterceptor" class="com.sns.common.interceptor.AuthInterceptor"/>
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/resources/**"/>
+			<mvc:exclude-mapping path="/home**"/>
+			<mvc:exclude-mapping path="/home/**"/>
+			<mvc:exclude-mapping path="/member**"/>
+			<mvc:exclude-mapping path="/member/**"/>
+			<mvc:exclude-mapping path="/logout"/>
+			<mvc:exclude-mapping path ="/login"/>
+			<mvc:exclude-mapping path ="/user/**"/>
+			<mvc:exclude-mapping path ="/user"/>
+			<mvc:exclude-mapping path="/board/*/file/**" />
+			<mvc:exclude-mapping path="/user/*/image" />
+				<ref bean="authInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+</beans>

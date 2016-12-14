@@ -1,0 +1,276 @@
+.board-center {
+	width: 75% !important;
+}
+
+.board-container {
+	padding-top: 0px;
+	border-radius: 15px;
+	width: 1150px !important;
+	background: #669999;
+	margin-top: 150px !important;
+}
+
+.modify-table {
+	width: 100%;
+}
+
+.modify-table td {
+	padding: 10px;
+}
+
+.modify-table input[type="text"] {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+/*오른쪽 form 설정*/
+.center-form {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 810px;
+	padding: 20px 20px 30px 20px;
+	margin-top: 25px;
+	margin-bottom: 30px;
+	text-align: center;
+	border-radius: 30px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	height: 700px;
+	overflow: auto;
+}
+/*사이드바 form설정*/
+.sidebar-form {
+	margin-top: 25px;
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	margin-bottom: 30px;
+	text-align: center;
+	border-radius: 30px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	height: 700px;
+}
+
+/*input type = text/password 설정*/
+.input-control {
+	width: 80%;
+	height: 37px;
+	margin-top: 8px;
+	padding: 6px 12px;
+	font-size: 14px;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+/*중복확인 버튼이 있는 input = text*/
+.overlap {
+	width: 71%
+}
+
+.overlap-btn {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	background: #4A8C99;
+	padding: 7px;
+	color: #FFFFFF;
+	width: 23%;
+	font-size: 14px;
+	cursor: pointer; /*커서모양을 바꿈*/
+	border-radius: 8px;
+}
+
+.btn {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	width: 50%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 15px;
+	cursor: pointer; /*커서모양을 바꿈*/
+	border-radius: 8px;
+}
+
+.search-btn {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	width: 70%;
+	border: 0px;
+	margin-top: 10px;
+	padding: 10px;
+	color: #FFFFFF;
+	background: #4A8C99;
+	font-size: 15px;
+	cursor: pointer; /*커서모양을 바꿈*/
+	border-radius: 8px;
+}
+
+.board-create-btn {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	width: 70%;
+	border: 0px;
+	margin-top: 10px;
+	padding: 10px;
+	color: #FFFFFF;
+	background: #4A8C99;
+	font-size: 15px;
+	cursor: pointer; /*커서모양을 바꿈*/
+	border-radius: 8px;
+}
+
+.float-left {
+	margin-left: 135px;
+	float: left;
+}
+
+.float-right {
+	margin-right: 120px;
+	float: right;
+}
+
+.btn:hover, .overlap-btn:hover, .filebox label:hover, .filebox button[type="button"]:hover,
+	.search-btn:hover, .board-create-btn:hover {
+	background: #368899;
+	color: #FFFFFF;
+}
+
+select {
+	width: 200px; /* 원하는 너비설정 */
+	padding: .8em .5em; /* 여백으로 높이 설정 */
+	font-family: "Roboto", sans-serif;
+	background:
+		url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+		no-repeat 95% 50%; /* 네이티브 화살표 대체 */
+	border: 1px solid #999;
+	border-radius: 10px; /* iOS 둥근모서리 제거 */
+	-webkit-appearance: none; /* 네이티브 외형 감추기 */
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.hr {
+	border-color: #4A8C99;
+	border-width: 5px;
+}
+
+.boardlist {
+	position: relative;
+	z-index: 1;
+	background: #FFFFFF;
+	max-width: 780px;
+	padding: 15px;
+	text-align: center;
+	margin-bottom: 14px;
+	border-radius: 30px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+		rgba(0, 0, 0, 0.24);
+	height: 140px;
+}
+
+.userimage {
+	position: absolute;
+	top: 28px;
+	left: 15px;
+	width: 70px;
+	height: 70px;
+	border-radius: 30px;
+}
+
+.boardmaker {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	position: absolute;
+	width: 75px;
+	top: 30px;
+	left: 105px;
+}
+
+.boardimage {
+	position: absolute;
+	top: 21px;
+	left: 210px;
+	width: 120px;
+	height: 90px;
+	border-radius: 8px;
+}
+
+.boardcontent {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	position: absolute;
+	top: 40px;
+	left: 340px;
+	width: 270px;
+	height: 60px;
+}
+
+.imagenullboardcontent {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	position: absolute;
+	top: 40px;
+	left: 240px;
+	width: 320px;
+	height: 60px;
+}
+
+.boardfile {
+	cursor: pointer;
+}
+
+.filedateform {
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+	float: right;
+	margin-top: 6px;
+	width: 150px;
+	position: relative;
+}
+
+.filelistvalue {
+	position: absolute;
+	font-size: 10px;
+	text-align: left;
+	color: #939390;
+	left: 20px;
+	background: #FFFFFF;
+	border: 1px solid #eeefda; rgba (0, 0, 0, 0.24);
+	width: 123px;
+	overflow: auto;
+	max-height: 70px;
+	z-index: 100;
+	display: none;
+}
+
+.dateboard {
+	position: absolute;
+	font-size: 14px;
+	margin-top: 13px;
+	left: 49px;
+	z-index: 1;
+}
+
+.dateboardvalue {
+	position: absolute;
+	font-size: 12px;
+	margin-top: 38px;
+	left: 48px;
+	z-index: 1;
+}
+
+.replymodifytext{
+	width: 297px;
+	height: 90px;
+	max-width: 297px;
+	max-height: 90px;
+}

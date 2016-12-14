@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>
+				<!-- 날짜/월/일/ 시간/분/초  레벨정보 컨트롤러정보 메세지 -->
+				[%d{yyyy-MM-dd HH:mm:ss}] [%-5level] %logger{%method:%line} - %msg%n
+			</Pattern>
+		</layout>
+    </appender>
+
+    
+
+    
+    <!-- 로그를 찍고자하는 클래스정보를 넣어주면 된다  controller패키지 이하 클래스전부-->
+    <logger name="com.sns.biz" level="info"></logger>
+
+	<logger name="jdbc.resultsettable">
+  		  <level value="info" />
+	</logger>
+
+    <logger name="org.springframework" level="info" />
+ 
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+    
+</configuration>

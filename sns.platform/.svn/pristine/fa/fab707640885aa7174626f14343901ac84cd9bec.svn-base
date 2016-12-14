@@ -1,0 +1,188 @@
+.board-content-form{
+	position : absolute;
+	width : 100%;
+	height : 500px;
+	padding : 15px 30px 30px 30px;
+	position: relative;
+	max-height : 500px;
+	overflow: auto;
+}
+
+.board-title{
+
+}
+
+.board-user-image{
+}
+
+.boardUserImage{
+	position : absolute;
+	padding-left : 50px;
+	width : 170px !important;
+	height: 120px;
+	border-radius: 10px;
+	left : 40px;
+}
+
+.board-creator{
+	position : absolute;
+	left : 220px;
+	font-family: "Roboto", sans-serif;
+	font-size : 17px;
+	
+}
+
+.board-btn{
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	width: 15%;
+	border : 0px;
+	margin-top : 10px;
+	padding: 10px;
+	color: #FFFFFF;
+	background: #4A8C99;
+	font-size: 15px;
+	cursor: pointer; /*커서모양을 바꿈*/
+	border-radius: 8px;
+}
+
+.modifybtn{
+	position: absolute;
+	left : 560px;
+}	
+
+.deletebtn{
+	position: absolute;
+	left : 700px;
+}	
+
+#carousel-example-generic{
+	position: absolute;
+	width : 300px;
+	height: 300px;
+	top : 150px;
+	left: 90px;
+	align : center;
+}
+
+ .carousel-inner > .item > img {
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height : 300px;
+      max-height: 300px;
+} 
+.boarddetailcontent{
+	  position : absolute;
+	  width : 400px;
+	  max-width: 800px;
+	  height: 150px;
+	  max-height : 150px;
+	  overflow : auto;
+	  left : 440px;
+	  top : 150px; 
+}    
+    
+.filediv{
+	position : absolute;
+	width : 400px;
+	height: 30px;
+	left : 435px;
+	top : 350px;
+	border: 2px solid;
+}
+	
+    
+.boardfilelist{
+	font-size : 20px;
+	padding-right: 100px;
+}    
+
+
+.fileListdiv{
+	position : absolute;
+	padding : 10px;
+	width : 398px;
+	height : 100px;
+	max-width : 398px;
+	max-height: 200px;
+	top : 26px;
+	right: 1px;
+	overflow : auto;
+	border: 2px solid;
+	display: none;
+}
+
+
+.replytext{
+	position : absolute;
+	width : 479px;
+	height: 30px;
+	top : 490px;
+	left: 90px;
+}
+.replybtn{
+	position : absolute;
+	top : 473px;
+	left: 570px;
+}
+
+.replyviewbtn{
+	position : absolute;
+	top : 473px;
+	left: 703px;
+}
+
+.filedown{
+	width: 22px;
+	height: 22px;
+	
+}
+
+.replylist{
+	position: absolute;
+	width : 725px;
+	height: 300px;
+	top : 530px;
+	left: 95px;
+	overflow : auto ;
+	padding: 15px;
+	display: none;
+}
+
+.replylistval{
+	padding: 15px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
+			rgba(0, 0, 0, 0.24);
+	width: 660px;
+	height: 65px;
+	max-width: 660px;
+	max-height: 65px;
+	border-radius: 15px;		
+}
+
+.replycreator{
+	float : left;
+	text-align: center;
+}
+
+
+.replycontent{
+	float : left;
+	margin-left : 170px;
+	max-width: 200px;
+	max-height: 50px;
+}
+
+.replycreatedate{
+	float : right;
+	margin-right: :80px;
+	text-align: center;
+}
+.replymodiftdelete{
+	float : right;
+	margin-top : 10px;
+	margin-right: 10px;
+	
+}
+

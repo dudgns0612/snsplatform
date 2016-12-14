@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="ReplyMapper">
+		
+	<insert id ="insertReply" parameterType="hashMap">
+		INSERT INTO REPLY (
+			   BOARD_NUMBER,
+			   USER_NUMBER,
+			   REPLY_CONTENT	
+		) VALUES (
+			   #{boardNum},
+			   #{userNum},
+			   #{replyContent} 
+		)	   
+	</insert>
+	
+	<delete id = "deleteReply" parameterType="hashMap">
+		DELETE 
+		  FROM REPLY
+		 WHERE BOARD_NUMBER = #{boardNum} AND REPLY_NUMBER = #{replyNum}  
+	</delete>
+	
+	<update id = "updateReply" parameterType="hashMap">
+		UPDATE REPLY
+		   SET REPLY_CONTENT = #{replyContent}
+		 WHERE BOARD_NUMBER = #{boardNum} AND REPLY_NUMBER = #{replyNum}   		
+	</update>
+	
+	<select id = "selectReplyList" resultType="hashMap">
+		SELECT A.REPLY_CONTENT replyContent,
+			   A.REPLY_NUMBER replyNum,
+			   DATE_FORMAT(A.REPLY_REGDATE, '%Y%m%d%H%i%s') replyRegDate,
+			   DATE_FORMAT(A.REPLY_UDTDATE, '%Y%m%d%H%i%s') replyUdtDate,
+			   B.USER_NUMBER userNum,
+			   B.USER_NICKNAME userNick,
+			   B.USER_ID userId  
+		  FROM REPLY AS A
+		  JOIN USER AS B ON A.USER_NUMBER = B.USER_NUMBER
+		 <where>
+		 <if test= "lastReplyNum != 0">
+		   <![CDATA[
+		       A.REPLY_NUMBER < #{lastReplyNum} AND
+		       ]]>
+		 </if>
+		 	   A.BOARD_NUMBER = #{boardNum}
+		 </where>
+		 ORDER BY A.REPLY_REGDATE DESC
+		 LIMIT 0 , #{pageNum}
+	</select>
+	
+	
+	
+	</mapper>

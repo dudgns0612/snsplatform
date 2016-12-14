@@ -1,0 +1,28 @@
+$(document).ready(function(){
+	var loginBtn = $(".float-left");
+	var joinBtn = $(".float-right");
+	
+	loginBtn.click(function(){
+		  var data =  $('.form-control');
+		  data.push({name:'userType',value:'user'});
+		  $.ajax({
+		          type: 'post'
+		        , url: '/login'
+		        , data: data
+		        , dataType : 'json'
+		        , success: function(data) {	        	
+		        	if(data.code == 1){
+		        		window.location.href = "board";
+		        	}else {
+		        		$('#myModal').modal();
+		        	}
+		         }
+			 });	
+	});
+	joinBtn.click(function(){	
+		window.location.href = "member/join";
+	});
+});
+
+
+ 	

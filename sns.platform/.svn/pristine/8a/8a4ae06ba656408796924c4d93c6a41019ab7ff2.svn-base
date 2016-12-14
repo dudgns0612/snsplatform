@@ -1,0 +1,50 @@
+/**
+ * (주) 오픈잇 | http://www.openit.co.kr
+ * Copyright (c)2016-2016,  openit Inc.
+ * All right reserved.
+ */
+package com.sns.biz.page;
+
+import java.util.Locale;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+/**
+ * url을 통하여 게시판 작업을 관리하는 컨트롤러
+ * @author 사업본부 사원 김영훈
+ * @version 0.1
+ * @created 2016. 11. 15
+ */
+@Controller
+public class PageController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
+	public PageController() {
+		//Default Constructor
+	}
+	
+	@RequestMapping(value= {"/home", "/"})
+	public String homeview(){
+		return "home/homeview";
+	}
+	
+	
+	@RequestMapping(value = "/board")
+	public String boardview(){	
+		return "board/boardview";
+	}
+	
+	@RequestMapping(value="/member/join", method = RequestMethod.GET)
+	public String joinview(){
+		return "member/joinview";
+	}
+	
+	@RequestMapping(value="/member/modify", method = RequestMethod.GET)
+	public String modifyview(){
+		return "member/modifyview";
+	}
+}
