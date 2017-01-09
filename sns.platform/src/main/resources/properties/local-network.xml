@@ -10,7 +10,7 @@
 	<entry key="userfilepath">C:/snsplatform/user/</entry>
 	<entry key="boardfilepath">C:/snsplatform/board/</entry>
 	<entry key="localpath">C:/snsplatform</entry>
-	<entry key="localhost">http://192.168.6.124</entry>
+	<entry key="localhost">http://localhost</entry>
 	<entry key="port">8080</entry>
 	<entry key="separator">/</entry>
 	

@@ -41,10 +41,12 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler{
 		userMap.put("userFile", userFile);
 		
 		
+		//세션 주입
 		HttpSession session = request.getSession(true);
 		
 		session.setAttribute("member",userMap);
 		
+		//성공했을 시 /board로 redirect
 		response.sendRedirect("/board");
 	}
 

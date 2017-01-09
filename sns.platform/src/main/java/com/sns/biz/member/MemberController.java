@@ -225,7 +225,6 @@ public class MemberController {
 		DataMap dataMap = new DataMap();
 		if ((commandMap.get("userId") != null && commandMap.get("userPass") != null)){
 			responseMap = memberService.memberLogin(commandMap);
-			System.out.println(responseMap);
 			if (responseMap != null && responseMap.size() > 0) {
 				String userFile = localhost+":"+port+"/user/"+responseMap.get("userNum")+"/image";
 				responseMap.put("userFile", userFile);
