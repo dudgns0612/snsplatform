@@ -47,7 +47,7 @@
 	                 <input type="password" class="form-control" name="userPass" placeholder="패스워드를 입력하세요." /><br/>
 	             </div>
 	             <div>
-	                 <button type="submit" class="btn float-left">  로그인 </button>
+	                 <button type="submit" class="btn float-left">  로그인! </button>
 					 <button type="button" class="btn float-right"> 회원가입 </button>   
 	             </div>
 	         </form>
