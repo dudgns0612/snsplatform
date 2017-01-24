@@ -35,9 +35,6 @@ public class CustomUserDetailService implements UserDetailsService{
 		//ServletContext servletContext = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getServletContext();
 		
 		
-		logger.info("loadUserByUsername userMap: "+userMap.toString());
-		
-		
 		if(userMap == null){
 			throw new UsernameNotFoundException("userName NotFound");
 

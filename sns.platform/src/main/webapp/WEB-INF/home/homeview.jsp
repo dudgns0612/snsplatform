@@ -14,6 +14,28 @@
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="../resources/js/bootstrap.min.js" type="text/javascript" /></script>
 	<script src="resources/js/homeJs.js" type="text/javascript" /></script>
+<%-- 	<script src ="<c:url value="resources/js/test.js" />"></script>	 --%>
+	<script>
+		
+	
+
+		$(document).ready(function() {
+
+			var a = {
+				name : function(aa) {
+
+					console.log(aa);
+				}
+			}
+
+			a.name('aa');
+
+		});
+	</script>
+	
+	
+	
+	
 </head>
 <body>
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
