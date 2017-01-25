@@ -13,13 +13,13 @@ import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.servlet.view.AbstractView;
-import com.sns.common.constant.NetworkConstants;
 /**
  * url을 통하여 게시판 작업을 관리하는 컨트롤러
  * @author 사업본부 사원 김영훈
@@ -59,6 +59,7 @@ public class FileDownloadView extends AbstractView{
 				response.setContentType("image/"+extention);
 			} else{
 				contentDisposition = "attachment;";
+				
 				response.setContentType(getContentType());
 			}
 			File file = new File(localpath+filePath);

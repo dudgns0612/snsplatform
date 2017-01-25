@@ -372,7 +372,11 @@ $(document).on('click','.imagenullboardcontent ,.boardcontent,.board-detail-btn'
 						el += '<div class = "fileListdiv">';
 						for(var i = 0; i < fileInfo.length ; i++){
 							var fileNum = fileInfo[i].fileNum;
-							el += ''+(i+1)+' &nbsp; '+fileInfo[i].fileName+' &nbsp;&nbsp;&nbsp; <img src="resources/img/download.png" class="filedown" onclick="javascript:fileDown(\''+href+'/board/'+boardNum+'/file/'+fileNum+'?view=down\');"'+'> </br>';
+							el += ''+(i+1)+' &nbsp; '+fileInfo[i].fileName+' &nbsp;&nbsp;&nbsp; <img src="resources/img/download.png" class="filedown" onclick="javascript:fileDown(\''+href+'/board/'+boardNum+'/file/'+fileNum+'?view=down\');"'+'>';
+							if(fileInfo[i].fileType.indexOf('video') > -1){
+								el += '<img src = "resources/img/playbutton.png" style="width:40px; height:40px; padding : 9px; margin-top : 3px;" onclick="window.open(\''+href+'/board/'+boardNum+'/file/'+fileNum+'\');" />';
+							}
+							el +=  '</br>';
 						}
 						el += '</div>'
 						$boardDiv.html(el);
@@ -414,7 +418,7 @@ $(document).on('click','.imagenullboardcontent ,.boardcontent,.board-detail-btn'
 					$boardImage.css('display','inline');
 					$('.boarddetailcontent').css('width','400'); 
 					$('.boarddetailcontent').css('left','440px'); 
-				} else{
+				} else {
 					//사진이 없을경우 슬라이드를 숨기고 게시글사이즈를 늘림
 					$boardImage.css('display','none');
 					$('.boarddetailcontent').css('width','950'); 

@@ -122,7 +122,8 @@
 	<select id="selectSecurityValue" resultType="hashMap">
 		SELECT USER_ID userId,
 		       USER_PASSWORD userPass,
-		       USER_NUMBER userNum
+		       USER_NUMBER userNum,
+		       USER_NICKNAME userNick
 		  FROM USER
 	     WHERE USER_ID = #{userId}       
 	</select>

@@ -7,7 +7,9 @@ package com.sns.biz.file;
 
 import java.util.HashMap;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
 import com.sns.biz.vo.CommandMap;
 import com.sns.biz.vo.DataMap;
 import com.sns.common.constant.NetworkConstants;
 import com.sns.common.view.FileDownloadView;
+import com.sns.common.view.VideoStreamingView;
 
 /**
  * url을 통하여 게시판 작업을 관리하는 컨트롤러
@@ -34,6 +38,7 @@ public class FileController {
 	
 	@Resource(name="fileservice") private FileService fileService;
 	@Resource(name="fileDownloadView") private FileDownloadView fileDownloadView;
+	@Resource(name="videoStreamingView") private VideoStreamingView videoStreamingView;
 	@Resource(name="jsonView") private MappingJackson2JsonView jsonView;
 	
 	private static final Logger logger = LoggerFactory.getLogger(FileController.class); 
@@ -99,25 +104,35 @@ public class FileController {
 	public ModelAndView fileDown(@PathVariable("boardNum")String boardNum,@PathVariable("fileNum")String fileNum
 			,CommandMap commandMap)
 	{	
-		HashMap<String, Object> fileMap;
+		HashMap<String, Object> fileMap = null;
 		int boardNumber = NumberUtils.toInt(boardNum);
 		int fileNumber = NumberUtils.toInt(fileNum);
 		commandMap.put("boardNum", boardNumber);
 		commandMap.put("fileNum", fileNumber);
 		String view = String.valueOf(commandMap.get("view"));
-		//파일 down/image를 default로 image로 대체
-		if (view.equals("null")){
-			view = "image";
-		}
 		fileMap = fileService.fileDown(commandMap);
+		
+		//파일다운로드 뷰를 통하여 조건에 맞는 다운로드실행
+		
+		//파일 down/image를 default로 image로 대체
+		if (view.equals("null")) {
+			if (String.valueOf(fileMap.get("fileType")).contains("video")) {
+				return new ModelAndView(videoStreamingView, "fileMap", fileMap);
+			} else {
+				view = "image";
+			}
+		} 
+
 		if(fileMap == null){
 			return null;
 		}
+		
 		fileMap.put("view", view);
 		
-		//파일다운로드 뷰를 통하여 조건에 맞는 다운로드실행
-		return new ModelAndView(fileDownloadView,"fileMap",fileMap);
-	}
-	
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>fileType : "+String.valueOf(fileMap.get("fileType")));
+		
+		return new ModelAndView(fileDownloadView, "fileMap", fileMap);
+		
+	}	
 }
 

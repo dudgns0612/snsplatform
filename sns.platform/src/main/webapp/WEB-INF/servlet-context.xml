@@ -34,6 +34,9 @@
 	<!-- FileDownloadView 설정 -->
 	<bean id ="fileDownloadView" class="com.sns.common.view.FileDownloadView" />
 	
+	<!-- StreamView Bean 설정 -->
+	<bean id = "videoStreamingView" class= "com.sns.common.view.VideoStreamingView" />
+	
 	<!-- RequestMappingResolver 설정 -->
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
