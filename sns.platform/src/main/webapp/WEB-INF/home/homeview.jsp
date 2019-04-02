@@ -15,26 +15,6 @@
 	<script src="../resources/js/bootstrap.min.js" type="text/javascript" /></script>
 	<script src="resources/js/homeJs.js" type="text/javascript" /></script>
 <%-- 	<script src ="<c:url value="resources/js/test.js" />"></script>	 --%>
-	<script>
-		
-	
-
-		$(document).ready(function() {
-
-			var a = {
-				name : function(aa) {
-
-					console.log(aa);
-				}
-			}
-
-			a.name('aa');
-
-		});
-	</script>
-	
-	
-	
 	
 </head>
 <body>
@@ -60,7 +40,7 @@
 
 	<div class="container">
 		<div class="login-form">
-			 <img src="resources/img/openit.png" width="300" height="150" /><br/><br/><br/>
+			 <img src="resources/img/sns-logo.png" width="300" height="200" /><br/><br/><br/>
 	         <form action="/j_spring_security_check" method="post">
 	             <div>
 	                 <input type="text" class="form-control" name="userId"  placeholder="아이디를 입력하세요."  autofocus /><br/>
@@ -69,7 +49,7 @@
 	                 <input type="password" class="form-control" name="userPass" placeholder="패스워드를 입력하세요." /><br/>
 	             </div>
 	             <div>
-	                 <button type="submit" class="btn float-left">  로그인! </button>
+	                 <button type="submit" class="btn float-left">  로그인 </button>
 					 <button type="button" class="btn float-right"> 회원가입 </button>   
 	             </div>
 	         </form>

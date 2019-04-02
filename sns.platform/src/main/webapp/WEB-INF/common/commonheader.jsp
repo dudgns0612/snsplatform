@@ -59,8 +59,8 @@
 			<table class="header-table">
 			<tr>
 				<td class="main-logo">
-					<img src="../resources/img/openit.png" class="mainlogoimg"/>
-					<p>IT Company OpenIt Sns</p>
+					<img src="../resources/img/sns-logo.png" class="mainlogoimg" style="width:160px;"/>
+					<strong>Software Engineer Sns</strong>
 				</td>
 		        <td class="user-profile">
 		        	<img src= ""  class="userprofileimage"/>

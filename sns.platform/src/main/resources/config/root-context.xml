@@ -22,6 +22,6 @@
 	<!-- 네트워크 프로퍼티 설정 -->
 	<util:properties id="local" location="classpath:properties/local-network.xml" ></util:properties>
 	
-	<bean id ="pushService" class="com.sns.common.push.service.PushService"></bean>
-	<bean id="dao" class="com.sns.common.push.dao.PushDao"></bean>
+<!-- 	<bean id ="pushService" class="com.sns.common.push.service.PushService"></bean> -->
+<!-- 	<bean id="dao" class="com.sns.common.push.dao.PushDao"></bean> -->
 </beans>
