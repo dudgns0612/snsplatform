@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sns.biz.board.BoardDAO;
 import com.sns.biz.vo.CommandMap;
-import com.sns.common.push.service.PushService;
+//import com.sns.common.push.service.PushService;
 
 /**
  * url을 통하여 게시판 작업을 관리하는 컨트롤러
@@ -32,7 +32,7 @@ public class ReplyService {
 	
 	@Resource private ReplyDAO replyDao;
 	@Resource private BoardDAO boardDao;
-	@Autowired private PushService pushService;
+//	@Autowired private PushService pushService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ReplyService.class);
 	
@@ -49,7 +49,7 @@ public class ReplyService {
 		}
 		
 		try{
-			pushService.pushForWriteReply(boardNum);
+//			pushService.pushForWriteReply(boardNum);
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}

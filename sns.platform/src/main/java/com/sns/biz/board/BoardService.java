@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.sns.biz.file.FileDAO;
 import com.sns.biz.vo.CommandMap;
 import com.sns.common.constant.NetworkConstants;
-import com.sns.common.push.service.PushService;
+//import com.sns.common.push.service.PushService;
 import com.sns.common.util.UtilMethod;
 
 /**
@@ -48,8 +48,7 @@ public class BoardService {
 	private BoardDAO boardDao;
 	@Resource
 	private FileDAO fileDao;
-	@Autowired
-	private PushService pushService;
+
 
 	/**
 	 * 생성자
@@ -102,11 +101,11 @@ public class BoardService {
 				board = NumberUtils.toInt(String.valueOf(commandMap.get("boardNum")));
 			}
 		}
-		try {
-			pushService.pushForWriteBoard(board);
-		} catch (Exception ex) {
-			logger.info("#############PUSH MESSAGE#############");
-		}
+//		try {
+//			pushService.pushForWriteBoard(board);
+//		} catch (Exception ex) {
+//			logger.info("#############PUSH MESSAGE#############");
+//		}
 
 		return check;
 	}

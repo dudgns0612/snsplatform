@@ -7,22 +7,13 @@ package com.sns.biz.member;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
-import java.util.regex.Pattern;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,10 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.mysql.fabric.xmlrpc.base.Array;
-import com.sns.biz.board.BoardDAO;
 import com.sns.biz.vo.CommandMap;
-import com.sns.biz.vo.DataMap;
 import com.sns.common.constant.NetworkConstants;
 import com.sns.common.util.UtilMethod;
 /**
