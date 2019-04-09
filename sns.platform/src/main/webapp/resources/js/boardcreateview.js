@@ -42,13 +42,53 @@ $(document).on('click','.filecanclebtn',function(){
 $(document).on('click','#boardcreate',function(){	
 		$modalContent.html("게시물을 등록하시겠습니까?");
 		$('#checkModal').modal();
-		alert("in");
 });
 
+$('.modal-footer > .pull-left').click(function() {
+	var fileLists = $('.files');
+	var formData = new FormData();
+	var boardContent = $('.input-control');
+	
+	if(boardContent.val() != ''){
+		formData.append('boardContent',boardContent.val());
+		 for(var i=0;i<fileLists.length;i++)
+		 {
+		       if($(fileLists[i]).is(":visible")==true)
+		       {
+		    	   formData.append('files',allFileData[i]);
+		       }         
+		 }
+	
+		$.ajax({
+			type : 'post', 
+			url : '/board',
+			processData : false,
+			contentType : false,
+			dataType : 'json',
+			data : formData,
+			success : function(data) {
+				if(data.code == 1){
+					window.location.href='/board';
+				}else{
+					modalContent.html("게시물 등록에 실패하셨습니다. 다시 시도하여주세요.");
+					$('#myModal').modal();
+				}
+		    },
+		    error : function(error){
+				$('.my-modal-body').html("오류가 발생하였습니다. 재시도 해주세요.");
+				$('#myModal').modal();
+				window.location.href = '/home'
+		    }
+			
+	   });
+	} else{
+		$mymodalContent.html("게시물 내용을 적어주세요.");
+		$('#myModal').modal();
+	}
+	
+});
 
 $('.modal-footer > .pull-left').click(function() {
-	alert("ok");
-	var fileLists = $('.files');
 	var formData = new FormData();
 	var boardContent = $('.input-control');
 	
