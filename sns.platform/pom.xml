@@ -10,7 +10,7 @@
   <properties>
   	<spring-framework.version>4.3.4.RELEASE</spring-framework.version>
   	<spring-framework.security.version>3.2.9.RELEASE</spring-framework.security.version>
-  	<spring-framework.logback.version>1.1.7</spring-framework.logback.version>
+  	<spring-framework.logback.version>1.2.0</spring-framework.logback.version>
   </properties>
   <dependencies>
     <dependency>
