@@ -8,7 +8,7 @@
   <name>sns.platform Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
-  	<spring-framework.version>4.3.4.RELEASE</spring-framework.version>
+  	<spring-framework.version>5.3.18</spring-framework.version>
   	<spring-framework.security.version>3.2.9.RELEASE</spring-framework.security.version>
   	<spring-framework.logback.version>1.1.7</spring-framework.logback.version>
   </properties>
